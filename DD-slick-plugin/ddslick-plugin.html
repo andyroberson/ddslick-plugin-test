@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>DDSlick Plugin Test</title>
+    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="ddslick-js.js"></script>
+</head>
+
+<body>
+    
+    <select id="demo-htmlselect">
+        <option value="0" href="facebook.com/firalima" data-imagesrc="http://dl.dropbox.com/u/40036711/Images/facebook-icon-32.png"
+            data-description="https://www.facebook.com/firalima"><a href="https://www.facebook.com/firalima">Facebook</a></option>
+        <option value="1"  data-imagesrc="http://dl.dropbox.com/u/40036711/Images/twitter-icon-32.png"
+            data-description="https://twitter.com/andy_roberson">Twitter</option>
+        <option value="2"  selected="selected" data-imagesrc="http://dl.dropbox.com/u/40036711/Images/linkedin-icon-32.png"
+            data-description="www.linkedin.com/pub/andy-roberson/67/250/440">LinkedIn</option>
+        <option value="3" data-imagesrc="GitHub-Mark-32px.png"
+            data-description="https://github.com/andyroberson">GitHub</option>
+    </select>
+    
+   <!-- to only be used if you can get the select think working
+   <button id="go">Go!</button>
+    -->
+    
+    <br><br>
+    <button id="restore">Make it ugly</button>
+        <button id="make-it-slick">Make it slick!</button>
+<style>
+    body {
+        font: .75em arial;
+    }
+    
+</style>
+<script>
+    $('#demo-htmlselect').ddslick({
+    onSelected: function(selectedData){
+        //callback function: do something with selectedData;
+    }   
+});
+    //Make it slick!
+$('#make-it-slick').on('click', function(){
+    $('#demo-htmlselect').ddslick();
+});
+
+//Restore Original
+$('#restore').on('click', function(){
+    $('#demo-htmlselect').ddslick('destroy');
+});
+
+
+/* the following is my sad attempts to get it so that when you clicked an element it would go to the appropriate link..
+I can't figure out how to get it so it knows what was selected! */
+
+/*
+var site = document.getElementById("demo-htmlselect"); /*e*/
+
+/*var value = document.getElementById("demo-htmlselect").value;*/
+/*var wah = $("#demo-htmlselect").val();
+var value = site.index;
+
+var yourSelect = document.getElementById( "demo-htmlselect" );
+alert( yourSelect.options[ yourSelect.selectedIndex ].value );
+
+$('#go').on('click', function() {
+  /* if ($('#one').selected()) {
+    window.open("facebook.com/firalima");
+   }*/
+  /*if(site.nodeValue == 1) {
+    window.open("facebook.com/firalima");
+}*/
+  /* if (var == 1) {
+      window.open("http://www.facebook.com/firalima");
+   }
+  
+  
+});
+
+/*if(site.nodeValue == 1) {
+    window.open("facebook.com/firalima");
+}*/
+/*
+console.log(value);
+console.log(wah);
+*/
+
+</script>
+
+</body>
+</html>
